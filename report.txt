@@ -1,0 +1,80 @@
+BaseForEverything Class Functions
+doSomething() Made this pure virtual because every object in the game needs to have its own behavior
+isAlive() Virtual and checks if alive
+setDead() marks class dead
+getWorld()  basic world access
+annoy() Virtual because getting annoyed affects classes differently
+Actor Classes Functions
+Earth
+doSomething() does nothing
+Barrel
+doSomething() Virtual handles checking player distance to become visible, getting collected and giving points, playing pickup sounds
+Boulder
+doSomething() Virtual handles falling behavior checking if there's earth below, waiting before falling, falling and checking collisions, damaging stuff it hits
+Squirt
+doSomething() Virtual checking if they hit protesters moving forward, checking for walls/earth, damaging protesters, disappearing after traveling max distance
+SonarKit
+doSomething() Virtual handles pickup checking if player is close, adding sonar charges, disappearing after time limit
+GoldNugget
+doSomething() Virtual collectors become visible near player, getting collected by player, getting collected by protesters, disappearing
+WaterPool
+doSomething() Virtual handles player collection, adding water units, timing out
+Tunnelman Functions
+doSomething() Virtual handles input moving, using items, digging earth
+getHP/getWater/etc just returns the resource
+decreaseHP just decreases health
+rmvEarthTunnel for removing earth
+pMove  movement checking is always the same
+useSquirt/useSonar/dropGold uses the resource/drops 
+Protester Base Functions
+doSomething() Virtual regular and hardcore have different behavior, chase player, shouting, leaving map
+bribeWithGold() Virtual regular and hardcore handle bribes differently
+canMoveInDirection/moveToExit/move__ moving funcs
+Regular Protester
+bribeWithGold()  handles gold behavior, giving points, leaving the map
+Hardcore Protester
+bribeWithGold() handles gold behavior taking gold, more points, standing still
+
+
+Made similar classes inherit from others
+Tested one by one to make sure it worked
+
+Earth Class
+Made sure you can dig it up
+Checked that it disappeared properly
+Checked digging near boulders worked right
+
+
+Barrel/Gold/Water
+Checked they showed up in right places
+tested visibility when player gets close
+Made sure collection behavior was working for both player and protesters
+checked correct points were given
+Checked sound effects played properly
+Made sure temporary items disappeared
+
+Boulder
+Tested falling behavior
+made sure it had correct fall time
+Checked it fell straight down
+Made sure it damaged players and protesters when falling
+
+
+Tunnelman
+Tested moving in all directions
+tested if digging worked properly
+Verified collecting all types of items worked
+checked health/death/rounds
+Tested using water, sonar, and gold
+
+
+Protester 
+Protesters move way too fast around the map
+protestors movement messed up and so is spawning
+Tested movement
+Tested Regular and Hardcore protesters behaviors in relation to goods
+tested being annoyed
+tested if they left map when needed
+tested object behavior
+
+
